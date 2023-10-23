@@ -36,6 +36,7 @@ RUN cargo build --release
 FROM debian:bookworm-slim as runtime
 
 COPY --from=build /backend/target/release/backend .
+COPY ./public ./public
 
 ENTRYPOINT [ "/backend" ]
 EXPOSE 8080
